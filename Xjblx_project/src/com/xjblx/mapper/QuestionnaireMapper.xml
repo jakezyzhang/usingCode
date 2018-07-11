@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xjblx.mapper.QuestionnaireMapper" >
+  <resultMap id="BaseResultMap" type="com.xjblx.po.Questionnaire" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="questionnair_name" property="questionnairName" jdbcType="VARCHAR" />
+    <result column="createdate" property="createdate" jdbcType="VARCHAR" />
+    <result column="naire_url" property="naireUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, username, questionnair_name, createdate, naire_url
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xjblx.po.QuestionnaireExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from questionnaire
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from questionnaire
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from questionnaire
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xjblx.po.QuestionnaireExample" >
+    delete from questionnaire
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xjblx.po.Questionnaire" >
+    insert into questionnaire (id, username, questionnair_name, 
+      createdate, naire_url)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{questionnairName,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=VARCHAR}, #{naireUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xjblx.po.Questionnaire" >
+    insert into questionnaire
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="questionnairName != null" >
+        questionnair_name,
+      </if>
+      <if test="createdate != null" >
+        createdate,
+      </if>
+      <if test="naireUrl != null" >
+        naire_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnairName != null" >
+        #{questionnairName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="naireUrl != null" >
+        #{naireUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xjblx.po.QuestionnaireExample" resultType="java.lang.Integer" >
+    select count(*) from questionnaire
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update questionnaire
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.questionnairName != null" >
+        questionnair_name = #{record.questionnairName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null" >
+        createdate = #{record.createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.naireUrl != null" >
+        naire_url = #{record.naireUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update questionnaire
+    set id = #{record.id,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR},
+      questionnair_name = #{record.questionnairName,jdbcType=VARCHAR},
+      createdate = #{record.createdate,jdbcType=VARCHAR},
+      naire_url = #{record.naireUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjblx.po.Questionnaire" >
+    update questionnaire
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="questionnairName != null" >
+        questionnair_name = #{questionnairName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        createdate = #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="naireUrl != null" >
+        naire_url = #{naireUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xjblx.po.Questionnaire" >
+    update questionnaire
+    set username = #{username,jdbcType=VARCHAR},
+      questionnair_name = #{questionnairName,jdbcType=VARCHAR},
+      createdate = #{createdate,jdbcType=VARCHAR},
+      naire_url = #{naireUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,99 @@
+body {
+	height: 100%;
+}
+#message {
+    background-image:url(../img/search_bg.jpeg);
+    background-size: 100%;
+    margin: 0 auto;
+	height: 630px;
+	padding-top: 50px;
+}
+
+
+#table_message table {
+	margin: auto;
+	
+}
+#table_message {
+    text-align: center;
+    margin:0 auto; 
+	color: #000;
+	background-color: rgba(255,255,255,0.65);
+	width: 500px;
+	height: 350px;
+	border-radius:25px;/*圆角*/
+	
+}
+#banner {
+	height: 55px;
+	background-color: #edeae4;
+	display: flex;
+	flex-direction: row;
+}
+.choose {
+	margin-left: 50%;
+	display: flex;
+	flex-direction: row;
+}
+
+#banner li {
+	list-style-type: none;
+	padding: 10px 20px;
+}
+
+#table_message table tr {
+	border-radius:20px;/*圆角*/
+	text-indent:6px;
+	width: 130px;
+	
+	/*font-size: large;*/
+}
+#table_message input{
+	width: 140px;
+}
+#table_message table tr td {
+	/*font-size: large;*/
+	color: #000;
+}
+#sub {
+	border-radius:20px;/*圆角*/
+	margin-top: 30px;
+	/*font-size: large;*/
+	width: 300px;
+	background-color: #ff9800;
+}
+a:link { 
+	font-size: large; 
+	color: #000; 
+	text-decoration: none; 
+} 
+a:visited { 
+	font-size: large; 
+	color: #000; 
+	text-decoration: none; 
+} 
+a:hover { 
+	font-size: large; 
+	color: #999999; 
+	text-decoration: underline; 
+} 
+
+#about {
+	display: none;
+	position: absolute;
+	text-decoration:none;
+	padding:15px 0px 0px 0px;
+}
+#about a {
+	color: #000;	
+}
+
+.warnning {
+	color: red;
+	font-size: x-small;
+}
+.input_message {
+	color: red;
+}
+
+

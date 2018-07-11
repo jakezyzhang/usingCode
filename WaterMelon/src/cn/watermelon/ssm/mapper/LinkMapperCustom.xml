@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.watermelon.ssm.mapper.LinkMapperCustom" >
+  <!-- 列出数据库中所有的长链接 -->
+  <select id="findLinkList" parameterType="cn.watermelon.ssm.po.LinkQueryVo"
+   resultType="cn.watermelon.ssm.po.LinkCustom">
+   	SELECT * FROM link;
+   </select>
+   
+   <!-- 通过长链接判断数据库中是否已有匹配的短链接 -->
+   <select id="findLinkShortUrlByLongUrl" parameterType="cn.watermelon.ssm.po.LinkQueryVo"
+   resultType="cn.watermelon.ssm.po.LinkCustom">
+   	SELECT link.linkshort FROM link where link.linklong = '${linksCustom.linklong}'
+   </select>
+   
+   
+   <!-- 通过短链接判断数据库中与之匹配的长链接 -->
+   <select id="findLinkLongtUrlByShortUrl" parameterType="cn.watermelon.ssm.po.LinkQueryVo"
+   resultType="cn.watermelon.ssm.po.LinkCustom" >
+   	SELECT link.linkLong FROM link where link.linkshort = '${linksCustom.linkshort}'
+  </select>
+   
+</mapper>

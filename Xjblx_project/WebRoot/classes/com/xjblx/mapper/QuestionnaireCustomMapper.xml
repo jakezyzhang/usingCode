@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xjblx.mapper.QuestionnaireCustomMapper">
+	<resultMap id="BaseResultMap" type="com.xjblx.po.Questionnaire" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="questionnair_name" property="questionnairName" jdbcType="VARCHAR" />
+    <result column="createdate" property="createdate" jdbcType="VARCHAR" />
+    <result column="naire_url" property="naireUrl" jdbcType="VARCHAR" />
+  </resultMap>
+	<!-- 显示该用户的所有问卷 -->
+	<select id="selectQuestionnaireByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT * FROM questionnaire WHERE  username = #{questionnaireCustom.username}
+    
+  	</select>
+  	<!-- 返回问卷类的搜索 -->
+  	<select id="selectQuestionnaireByUsernameToqu" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from questionnaire where username = #{username,jdbcType=VARCHAR}
+  	</select>
+  	
+	<!-- 用户和问卷一对一对应-->
+	<select id="selectQuestionnaireByUserNameQname"   resultMap="BaseResultMap">
+		SELECT * FROM questionnaire WHERE username = #{0} and questionnair_name = #{1}	
+	</select>
+	
+</mapper>
