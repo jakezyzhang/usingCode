@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #666;
+	background: #fff;
+}
+
+#tempatemo_content_wrapper {
+	clear: both;
+	width: 980px;
+	margin: 0 auto;
+}
+
+#templatemo_content {
+	width: 900px;
+	margin: 30px;
+	padding: 9px;
+}
+
+/* item */
+
+.footer_flex {
+	background-color: red;
+	/*text-align: center;*/
+}
+
+.footer_flex li {
+	width: 180px;
+	height: 250px;
+	/*
+	background-color: #bbb;
+	*/
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid darkgray;
+	margin: 5px 12px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+	z-index: 10;
+	list-style: none;
+}
+
+.footer_flex li:hover {
+	background-color: #ff8400;
+}
+
+.footer_flex li .img-n {
+	clear: both;
+	display: : block;
+	padding-top: 10px;
+	width: 180px;
+	height: 180px;
+}
+
+.footer_flex li:hover .img-n {
+	/*display: none;*/
+}
+
+.footer_flex li .itemTitle {
+	margin-top: 20px;
+	color: black;
+	font-size: 13px;
+	text-align: center;
+	display: block;
+}
+
+.footer_flex li .itemTitle a {
+	color: black;
+	font-size: 13px;
+}
+
+/* popup */
+.footer_flex li .flex-footer {
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	padding-top: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	left: -12px;
+	top: 0px;
+	text-align: left;
+	background: url(../images/popup_bg.png) 1px top no-repeat;
+	display: none;
+}
+
+.footer_flex li:hover .flex-footer {
+	display: block;
+}

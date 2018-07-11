@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>示例2：AJAX和DOM操作</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+		<servlet-name>InitServlet</servlet-name>
+		<servlet-class>com.zzy.album.servlet.InitServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<context-param>
+		<param-name>sql_dialect</param-name>
+		<param-value>mysql</param-value>
+	</context-param>
+	<context-param>
+		<param-name>data_source</param-name>
+		<param-value>album</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>ListAlbumServlet</servlet-name>
+		<servlet-class>com.zzy.album.servlet.ListAlbumServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListAlbumServlet</servlet-name>
+		<url-pattern>/listAlbum.action</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetAlbumDetailServlet</servlet-name>
+		<servlet-class>com.zzy.album.servlet.GetAlbumDetailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetAlbumDetailServlet</servlet-name>
+		<url-pattern>/getAlbumDetail.action</url-pattern>
+	</servlet-mapping>
+
+	<resource-ref>
+		<res-ref-name>jdbc/album</res-ref-name>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+</web-app>
